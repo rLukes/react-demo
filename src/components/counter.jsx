@@ -23,8 +23,24 @@ class Counter extends Component {
     );
   }
 
+  handleIncrement = () => {
+    this.setState({
+      count: this.state.count + 1
+    });
+  };
+
   render() {
-    return <div>{this.renderTags()}</div>;
+    return (
+      <div>
+        <span className="badge m-2 badge-primary">{this.formatCount()}</span>
+        <button
+          onClick={this.handleIncrement}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
+      </div>
+    );
   }
 
   formatCount() {
